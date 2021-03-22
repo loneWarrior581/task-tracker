@@ -1,19 +1,9 @@
-# task-tracker
+## Task Tracker
 
-## Project setup
-```
-yarn install
-```
+A Simple Task tracker for tracking ior day to day activity made for learning purpose of **Vue Js** and noting else.
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
+### Todos :-
 
-### Compiles and minifies for production
-```
-yarn build
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+- [x] General Setup for development
+- [x] Made the ui for the cards and added some data
+- [ ]
