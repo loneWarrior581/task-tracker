@@ -1,7 +1,8 @@
 <template>
     <header>
         <h1>{{title}} </h1>
-        <Button text="Add Task" color="green" />
+        <Button @show-hide="$emit('show-hide') " :text="showAddTask?'Close':'Add Task' " 
+         :color="showAddTask ? 'red':'green'" />
     </header>
 </template>
 
@@ -16,7 +17,8 @@ export default {
         title:{
             type:String,
             default:'Say hi'
-        }
+        },
+        showAddTask:Boolean
     }
 }
 </script>

@@ -1,7 +1,10 @@
 <template>
 <div class="container">
-  <Header title="Task Tracker"/>
-  <Tasks :tasks="tasks" />
+  <Header @show-hide="handleShow" :showAddTask="showAddTask" title="Task Tracker"/>
+  <div v-if="showAddTask">
+    <AddTask @new-task="addNewTask" />
+  </div>
+  <Tasks @toggle-reminder="toggleReminder" @delete-task="deleteTask" :tasks="tasks" />
 </div>
 <!-- 
   this is the point which I left the video at
@@ -12,16 +15,38 @@
 <script>
 import Header from './components/Header'
 import Tasks from './components/Tasks'
+import AddTask from './components/AddTask'
 
 export default {
   name: "App",
   components: {
     Header,
-    Tasks
+    Tasks,
+    AddTask
   },
   data(){
     return{
-      tasks:[]
+      tasks:[],
+      showAddTask:false
+    }
+  },
+  methods:{
+    deleteTask(id){
+      if(confirm("Are you sure you wanted to delete it?")){
+        this.tasks=this.tasks.filter((task)=>task.id!==id)
+      }
+    },
+    toggleReminder(id){
+      this.tasks=this.tasks.map((task)=>
+      task.id===id ? {...task,reminder:!task.reminder}
+      : task
+    )
+    },
+    addNewTask(newTask){
+        this.tasks=[...this.tasks,newTask]
+    },
+    handleShow(){
+      this.showAddTask=!this.showAddTask
     }
   },
 
