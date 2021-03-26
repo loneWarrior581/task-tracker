@@ -1,0 +1,16 @@
+{
+  "tasks": [
+    {
+      "id": 380,
+      "text": "learn django from the udemy course",
+      "day": " das",
+      "reminder": true
+    },
+    {
+      "text": "ideapad S340",
+      "day": " das",
+      "reminder": true,
+      "id": 381
+    }
+  ]
+}
